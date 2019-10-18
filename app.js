@@ -17,28 +17,6 @@ const express = require('express');
 // Assigning Express to an app contstant
 const app = express();
 
-// Adding cookie and session support to our application
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
-const flash = require('connect-flash');
-app.use(cookieParser());
-app.use(session({
-  secret: (process.env.secret || 'boorakacha'),
-  cookie: {
-    maxAge: 10800000
-  },
-  resave: true,
-  saveUninitialized: true
-}));
-app.use(flash());
-app.use((req, res, next) => {
-  debugger
-  res.locals.flash = res.locals.flash || {};
-  res.locals.flash.success = req.flash('success') || null;
-  res.locals.flash.error = req.flash('error') || null;
-
-  next();
-});
 
 // This maintains our home path
 const path = require('path');
