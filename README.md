@@ -1,3 +1,3 @@
 # Music Festival
 A Music Festival management application
-Drake Esdon and Michael Roussel
+by Drake Esdon and Michael Roussel
