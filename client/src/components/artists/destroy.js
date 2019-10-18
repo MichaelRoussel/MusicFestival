@@ -6,14 +6,14 @@ import Axios from "axios";
 
 function Destroy(props) {
   useEffect(() => {
-    Axios.post("/api/phones/destroy", {
+    Axios.post("/api/artists/destroy", {
       id: props.match.params.id
     })
     // .then(() => setNotification(notification => {
     //   return {
     //     ...notification,
     //     status: "success",
-    //     message: "Phone deleted successfully"
+    //     message: "Artist deleted successfully"
     //   };
     // }))
     // .catch(() => setNotification(notification => {
@@ -25,7 +25,7 @@ function Destroy(props) {
     // }));
   }, [props]);
 
-  return <Redirect to="/phones" />;
+  return <Redirect to="/artists" />;
 }
 
 export default Destroy;

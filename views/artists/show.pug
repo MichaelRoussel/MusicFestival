@@ -2,7 +2,6 @@ extends ../layouts/main.pug
 block content
   .container
     header
-      h1 New Monitor Entry
+      h1= artist.name
+      h4= artist.genre
 
-    div
-      include ./form.pug

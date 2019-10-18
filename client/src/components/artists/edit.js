@@ -8,7 +8,7 @@ function Edit(props) {
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
-    Axios.get(`/api/phones/${props.match.params.id}`)
+    Axios.get(`/api/artists/${props.match.params.id}`)
       .then(result => setInputs(result.data))
       .catch(err => console.error(err));
   }, [props]);
@@ -16,9 +16,9 @@ function Edit(props) {
   function handleSubmit(event) {
     event.preventDefault();
 
-    Axios.post("/api/phones/update", {
+    Axios.post("/api/artists/update", {
       id: props.match.params.id,
-      phone: inputs
+      artist: inputs
     })
       .then(resp => setRedirect(true))
       .catch(err => console.error(err));
@@ -37,55 +37,34 @@ function Edit(props) {
     });
   }
 
-  if (redirect) return <Redirect to="/phones" />;
+  if (redirect) return <Redirect to="/artists" />;
 
   return (
     <div className="container">
       <header>
-        <h1>Edit Phone Post</h1>
+        <h1>Edit Artist Post</h1>
       </header>
       <div>
       <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Model</label>
+            <label>Name</label>
             <input
               className="form-control"
-              name="model"
+              name="name"
               required="required"
               onChange={handleInputChange}
-              value={inputs.model}
+              value={inputs.name}
             />
           </div>
 
           <div className="form-group">
-            <label>Brand</label>
+            <label>Genre</label>
             <input
               className="form-control"
-              name="brand"
+              name="genre"
               required="required"
               onChange={handleInputChange}
-              value={inputs.brand}
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Price</label>
-            <input
-              className="form-control"
-              name="price"
-              required="required"
-              onChange={handleInputChange}
-              value={inputs.price}
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Specifications</label>
-            <textarea
-              className="form-control"
-              name="specifications"
-              onChange={handleInputChange}
-              value={inputs.specifications}
+              value={inputs.genre}
             />
           </div>
 

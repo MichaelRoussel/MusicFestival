@@ -2,24 +2,22 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 
 function Show(props) {
-  const [phone, setPhone] = useState([]);
+  const [artist, setArtist] = useState([]);
 
   useEffect(() => {
-    Axios.get(`/api/phones/${props.match.params.id}`)
-      .then(result => setPhone(result.data))
+    Axios.get(`/api/artists/${props.match.params.id}`)
+      .then(result => setArtist(result.data))
       .catch(err => console.error(err));
   }, [props]);
 
   return (
     <div className="container">
       <header>
-        <h1>{phone.model}</h1>
+        <h1>{artist.name}</h1>
       </header>
       <div>
-        <h4>{phone.brand}</h4>
-        <h4>{phone.price}</h4>
+        <h4>{artist.genre}</h4>
       </div>
-      <div>{phone.specifications}</div>
     </div>
   );
 }

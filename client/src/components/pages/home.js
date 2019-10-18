@@ -5,7 +5,7 @@ function Home() {
   return (
     <header className="home-cta">
       <h1>
-        Welcome to my Electronics Store!
+        Music Festival App
       </h1>
     </header>
   );

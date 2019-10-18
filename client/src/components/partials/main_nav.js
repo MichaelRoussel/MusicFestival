@@ -5,7 +5,7 @@ function MainNav() {
   return (
     <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="/">
-        Electronics
+        Music Festival
       </a>
       <button
         className="navbar-toggler"
@@ -25,16 +25,7 @@ function MainNav() {
               Home
             </Link>
           </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/about">
-              About
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/contact">
-              Contact
-            </Link>
-          </li>
+          
 
           <li className="nav-item dropdown">
             <a
@@ -45,40 +36,19 @@ function MainNav() {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Phones
+              Artists
             </a>
 
             <div className="dropdown-menu">
-              <Link className="dropdown-item" to="/phones">
-                All Phones
+              <Link className="dropdown-item" to="/artists">
+                All Artists
               </Link>
-              <Link className="dropdown-item" to="/phones/new">
-                New Phone
+              <Link className="dropdown-item" to="/artists/new">
+                New Artist
               </Link>
             </div>
           </li>
 
-          <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle"
-              href="/"
-              data-toggle="dropdown"
-              role="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Monitors
-            </a>
-
-            <div className="dropdown-menu">
-              <Link className="dropdown-item" to="/monitors">
-                All Monitors
-              </Link>
-              <Link className="dropdown-item" to="/monitors/new">
-                New Monitor
-              </Link>
-            </div>
-          </li>
         </ul>
       </div>
     </nav>
