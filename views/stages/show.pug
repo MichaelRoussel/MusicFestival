@@ -2,7 +2,6 @@ extends ../layouts/main.pug
 block content
   .container
     header
-      h1= `Edit ${artist.model}`
+      h1= stage.name
+      h4= stage.location
 
-    div
-      include ./form.pug

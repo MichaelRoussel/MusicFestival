@@ -1,0 +1,15 @@
+div
+  form(action=(stage ? `/stages/update` : "/stages"), method="POST")
+    if stage
+      input(type="hidden", name="id", value=stage.id)
+
+    .form-group
+      label Name
+      input.form-control(name="stage[name]", required, value=(stage ? stage.name : null))
+
+    .form-group
+      label Genre
+      input.form-control(name="stage[location]", required, value=(stage ? stage.location : null))
+    
+    .form-group
+      button.btn.btn-dark(type="submit") Submit

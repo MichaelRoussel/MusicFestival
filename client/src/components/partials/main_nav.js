@@ -48,6 +48,27 @@ function MainNav() {
               </Link>
             </div>
           </li>
+          <li className="nav-item dropdown">
+            <a
+              className="nav-link dropdown-toggle"
+              href="/"
+              data-toggle="dropdown"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Stages
+            </a>
+
+            <div className="dropdown-menu">
+              <Link className="dropdown-item" to="/stages">
+                All Stages
+              </Link>
+              <Link className="dropdown-item" to="/stages/new">
+                New Stage
+              </Link>
+            </div>
+          </li>
 
         </ul>
       </div>
