@@ -3,22 +3,17 @@ import { Redirect } from "react-router-dom";
 import Axios from "axios";
 
 
-function New() {
+function Login() {
   const [inputs, setInputs] = useState({});
   const [redirect, setRedirect] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    Axios.post("/api/artists", {
-      artist: {
-        name: inputs.name,
-        genre: inputs.genre,
-      }
-    })
+    Axios.post("/api/authenticate", inputs)
       .then(resp => setRedirect(true))
       .catch(err => console.error(err));
-  }
+    };
 
   function handleInputChange(event) {
     event.persist();
@@ -35,26 +30,26 @@ function New() {
   return (
     <div className="container">
       <header>
-        <h1>New Artist Entry</h1>
+        <h1>Login</h1>
       </header>
-
       <div>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Name</label>
+            <label>Email</label>
             <input
               className="form-control"
-              name="name"
+              name="email"
               required="required"
               onChange={handleInputChange}
             />
           </div>
 
           <div className="form-group">
-            <label>Genre</label>
+            <label>Password</label>
             <input
               className="form-control"
-              name="genre"
+              name="password"
+              type="password"
               required="required"
               onChange={handleInputChange}
             />
@@ -71,4 +66,4 @@ function New() {
   );
 }
 
-export default New;
+export default Login;

@@ -8,11 +8,16 @@ import ArtistIndex from "./artists/index";
 import ArtistShow from "./artists/show";
 import ArtistEdit from "./artists/edit";
 import ArtistDestroy from "./artists/destroy";
+
 import StageNew from "./stages/new";
 import StageIndex from "./stages/index";
 import StageShow from "./stages/show";
 import StageEdit from "./stages/edit";
 import StageDestroy from "./stages/destroy";
+
+import Register from "./sessions/register";
+import Login from "./sessions/login";
+import Logout from "./sessions/logout";
 
 
 function Routes() {
@@ -29,6 +34,9 @@ function Routes() {
       <Route exact path="/stages/:id" component={StageShow} />
       <Route exact path="/stages/:id/edit" component={StageEdit} />
       <Route exact path="/stages/:id/destroy" component={StageDestroy} />
+      <Route exact path="/register" component={Register} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/logout" component={Logout} />
     </Switch>
   );
 }

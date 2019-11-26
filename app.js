@@ -17,6 +17,20 @@ const express = require('express');
 // Assigning Express to an app contstant
 const app = express();
 
+// Adding cookies and sessions
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+app.use(cookieParser());
+app.use(
+  session({
+    secret: process.env.secret || "boorakacha",
+    cookie: {
+      maxAge: 10800000
+    },
+    resave: true,
+    saveUninitialized: true
+  })
+);
 
 // This maintains our home path
 const path = require('path');
@@ -27,6 +41,29 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
+// Our authentication helper
+const jwt = require("jsonwebtoken");
+const isAuthenticated = req => {
+  const token =
+    (req.cookies && req.cookies.token) ||
+    (req.body && req.body.token) ||
+    (req.query && req.query.token) ||
+    (req.headers && req.headers["x-access-token"]);
+
+  if (req.session.userId) return true;
+
+  if (!token) return false;
+
+  jwt.verify(token, "bobthebuilder", (err, decoded) => {
+    if (err) return false;
+    return true;
+  });
+};
+app.use((req, res, next) => {
+  req.isAuthenticated = () => isAuthenticated(req);
+  next();
+});
 
 // Our routes
 const routes = require("./routes.js");

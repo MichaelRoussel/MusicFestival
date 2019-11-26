@@ -15,6 +15,7 @@ function Index() {
     <div className="container">
       <header>
         <h1>All Artists</h1>
+        <script src='.../models/user.js'></script>
       </header>
 
       <div>
