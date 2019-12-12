@@ -14,4 +14,4 @@ const PerformanceSchema = new mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('Stage', PerformanceSchema);
+module.exports = mongoose.model('Performance', PerformanceSchema);
