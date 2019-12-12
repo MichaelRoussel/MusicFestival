@@ -1,0 +1,23 @@
+div
+  form(action=(performance ? `/performances/update` : "/performances"), method="POST")
+    if performance
+      input(type="hidden", name="id", value=performance.id)
+
+    .form-group
+      label Name
+      input.form-control(name="performance[name]", required, value=(performance ? performance.name : null))
+
+    .form-group
+      label Artist
+      input.form-control(name="performance[artist]", required, value=(performance ? performance.artist : null))
+    
+    .form-group
+      label Stage
+      input.form-control(name="performance[stage]", required, value=(performance ? performance.stage : null))
+      
+    .form-group
+      label Date
+      inout.form-control(name="performance[date]", required, value=(performance ? performance.date : null))
+
+    .form-group
+      button.btn.btn-dark(type="submit") Submit
