@@ -1,21 +1,24 @@
-const mongoose = require('mongoose');
-const Artist = require("../models/artist");
-const Stage = require("../models/stage");
+import mongoose from 'mongoose';
 
-
-
-// Our Schema
-const PerformanceSchema = new mongoose.Schema({
-  name: {
+const Schema = mongoose.Schema;
+const PerformanceSchema = new Schema({
+  artistId: {
+    type: Schema.Types.ObjectId, ref: 'artist'
+  },
+  stageId: {
+    type: Schema.Types.ObjectId, ref: 'stage'
+  },
+  date: {
     type: String,
-    required: true
   },
   time: {
     type: String,
-    required: true
-  }                                            
-}, {
+  }
+},{
   timestamps: true
-});
+}
+                                    
+                            );
 
-module.exports = mongoose.model('Performance', PerformanceSchema);
+
+export default mongoose.model('Performance', PerformanceSchema);
