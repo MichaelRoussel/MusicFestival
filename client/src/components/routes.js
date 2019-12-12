@@ -15,6 +15,12 @@ import StageShow from "./stages/show";
 import StageEdit from "./stages/edit";
 import StageDestroy from "./stages/destroy";
 
+import PerformanceNew from "./performances/new";
+import PerformanceIndex from "./performances/index";
+import PerformanceShow from "./performances/show";
+import PerformanceEdit from "./performances/edit";
+import PerformanceDestroy from "./performances/destroy";
+
 import Register from "./sessions/register";
 import Login from "./sessions/login";
 import Logout from "./sessions/logout";
@@ -34,6 +40,11 @@ function Routes() {
       <Route exact path="/stages/:id" component={StageShow} />
       <Route exact path="/stages/:id/edit" component={StageEdit} />
       <Route exact path="/stages/:id/destroy" component={StageDestroy} />
+      <Route exact path="/performances/new" component={PerformanceNew} />
+      <Route exact path="/performances" component={PerformanceIndex} />
+      <Route exact path="/performances/:id" component={PerformanceShow} />
+      <Route exact path="/performances/:id/edit" component={PerformanceEdit} />
+      <Route exact path="/performances/:id/destroy" component={PerformanceDestroy} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/logout" component={Logout} />

@@ -22,6 +22,7 @@ exports.create = (req, res) => {
     })
       .then(user => {
         if(user.role == 'ADMIN') {
+          console.log(req.body.artist);
           Artist.create(req.body.artist)
             .then(() =>
               res.status(201).send({ success: "Artist was successfully created" })

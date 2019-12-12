@@ -69,6 +69,27 @@ function MainNav() {
               </Link>
             </div>
           </li>
+          <li className="nav-item dropdown">
+            <a
+              className="nav-link dropdown-toggle"
+              href="/"
+              data-toggle="dropdown"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Performances
+            </a>
+
+            <div className="dropdown-menu">
+              <Link className="dropdown-item" to="/performances">
+                All Performances
+              </Link>
+              <Link className="dropdown-item" to="/performances/new">
+                New Performance
+              </Link>
+            </div>
+          </li>
           <li className="nav-item">
             <Link className="nav-link" to="/login">
               Login

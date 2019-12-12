@@ -1,0 +1,15 @@
+div
+  form(action=(performance ? `/performances/update` : "/performances"), method="POST")
+    if performance
+      input(type="hidden", name="id", value=performance.id)
+
+    .form-group
+      label Name
+      input.form-control(name="performance[name]", required, value=(performance ? performance.name : null))
+
+    .form-group
+      label Genre
+      input.form-control(name="performance[time]", required, value=(performance ? performance.time : null))
+    
+    .form-group
+      button.btn.btn-dark(type="submit") Submit

@@ -1,0 +1,26 @@
+extends ../layouts/main.pug
+block content
+  .container
+    header
+      h1= title
+
+    div
+      table.table.table-striped
+        thead
+          tr
+            th Name
+            th Time
+
+        
+        tbody
+          each performance in performances
+            tr
+              td
+                a(href=`/performances/${performance.id}`)= performance.name
+              td= performance.time
+              td
+                a(href=`/performances/${performance.id}/edit`) edit
+                = ` | `
+                form.destroy(action=`/performances/destroy`, method="POST", onsubmit='return confirm("Are you sure you wish to destroy this performance?")')
+                  input(type="hidden", name="id", value=`${performance.id}`)
+                  input.destroy(type="submit", value="destroy")
