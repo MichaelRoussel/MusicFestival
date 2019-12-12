@@ -15,29 +15,29 @@ function Index() {
     <div className="container">
       <header>
         <h1>All Performances</h1>
+        <script src='.../models/user.js'></script>
       </header>
 
       <div>
         <table className="table table-striped">
           <thead>
             <tr>
-              <th>Band Name</th>
+              <th>Name</th>
               <th>Time</th>
             </tr>
           </thead>
 
           <tbody>
-            {performances.map(artist => (
-              <tr key={artist._id}>
+            {console.log(performances)}
+            {performances.map(performance => (
+              <tr key={performance._id}>
                 <td>
-                  {performance.name}
+                  <Link to={`/performances/${performance._id}`}>{performance.name}</Link>
                 </td>
+                <td>{performance.time}</td>
                 <td>
-                  {performance.time}
-                </td>
-                <td>
-                  <Link to={`/artists/${artist._id}/edit`}>edit </Link>|
-                  <Link to={`/artists/${artist._id}/destroy`}> delete</Link>
+                  <Link to={`/performances/${performance._id}/edit`}>edit </Link>|
+                  <Link to={`/performances/${performance._id}/destroy`}> delete</Link>
                 </td>
               </tr>
             ))}

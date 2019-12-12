@@ -1,24 +1,17 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
-const PerformanceSchema = new Schema({
-  artistId: {
-    type: Schema.Types.ObjectId, ref: 'artist'
-  },
-  stageId: {
-    type: Schema.Types.ObjectId, ref: 'stage'
-  },
-  date: {
-    type: String,
-  },
-  time: {
-    type: String,
-  }
-},{
-  timestamps: true
-}
-                                    
-                            );
+// Our Schema
+const PerformanceSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    time: {
+        type: String,
+        required: true
+    }
+}, {
+    timestamps: true
+});
 
-
-export default mongoose.model('Performance', PerformanceSchema);
+module.exports = mongoose.model('Stage', PerformanceSchema);

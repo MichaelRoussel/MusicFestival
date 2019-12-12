@@ -105,7 +105,7 @@ function MainNav() {
               Logout
             </Link>
           </li>
-
+          <li>
             <div className="dropdown-menu">
               <Link className="dropdown-item" to="/performances">
                 All Performances

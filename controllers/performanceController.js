@@ -17,8 +17,8 @@ exports.show = (req, res) => {
 exports.create = (req, res) => {
   Performance.create(req.body.performance)
     .then(() =>
-          res.status(201).send({ success: "Performance was successfully created" })
-         )
+      res.status(201).send({ success: "Performance was successfully created" })
+    )
     .catch(err => res.status(400).send(err));
 };
 
@@ -41,8 +41,8 @@ exports.update = (req, res) => {
     }
   )
     .then(() =>
-          res.status(202).send({ success: "Your performance was successfully updated" })
-         )
+      res.status(202).send({ success: "Your performance was successfully updated" })
+    )
     .catch(err => res.status(400).send(err));
 };
 
@@ -51,7 +51,7 @@ exports.destroy = (req, res) => {
     _id: req.body.id,
   })
     .then(() =>
-          res.status(202).send({ success: "Your performance was successfully destroyed" })
-         )
+      res.status(202).send({ success: "Your performance was successfully destroyed" })
+    )
     .catch(err => res.status(400).send(err));
 };
